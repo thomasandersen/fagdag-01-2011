@@ -1,5 +1,8 @@
 "En enklere JavaScript hverdag"
 
+test
+
+
 TODO 
     Chrome for slides og Cloud9 demo
     Firefox for browser debugging

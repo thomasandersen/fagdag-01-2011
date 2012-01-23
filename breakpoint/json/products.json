@@ -1,0 +1,16 @@
+{
+    "products": [
+		{
+			"key": 1,
+			"name": "Fisk"
+		},
+		{
+			"key": 2,
+			"name": "Ost"
+		},
+		{
+			"key": 3,
+			"name": "Krabbe"
+		}
+	]
+}

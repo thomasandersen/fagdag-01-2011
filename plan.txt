@@ -1,0 +1,86 @@
+"En enklere JavaScript hverdag"
+
+TODO 
+    Chrome for slides og Cloud9 demo
+    Firefox for browser debugging
+    Mer fokus på real world eksempler
+    Justere presentasjonen / gjennomgang / testing
+
+---
+
+* Cloud9 IDE
+    Cloud9 is a state-of-the-art IDE that runs in your browser and lives in the cloud,
+    allowing you to run, debug and deploy applications from anywhere.
+    
+    node.js eksempel, debugging
+
+
+* Breakpoint debugging i browser'n
+    Break on error
+        Console:
+        Kryss av for å pause ved feilen
+        Kjør script på nytt
+        Gå igjenneom
+
+    Breakpoint debugging overview
+        Åpne og vis hover card demo
+        Åpne debugger - script
+        Finn hovercard.js
+        Gå til linje #209
+        Sett et breakpoint på linje 211
+        Vis stack, watch, musover i script
+        
+
+    Break on mutation
+        Event log
+        Vis element
+        Context meny
+        Break on element add/remove
+
+    Wrap up
+
+	Break on next JavaScript call
+
+
+* Console triks
+    Debug with console
+    $0
+    copy
+    dir
+    log('Explore an object', {a:1, b:2});
+    log('I am in this function', true, 1, {a:1,b:2}, [1,2,3])
+	trace()
+
+
+* Chrome 
+	Debug minifisert kode:
+   	Remote debugging
+
+    Andre tilegg:
+    https://chrome.google.com/webstore/category/ext/11-web-development
+
+
+* Firefox
+    Native developer tools
+
+	Firebug Crossfire Project:
+    Crossfire is a Firebug extension which implements a JSON protocol to allow remote clients (like an IDE or code editor) to connect to Firebug. 
+    http://getfirebug.com/wiki/index.php/Crossfire	
+
+    Tilt3d:
+    https://addons.mozilla.org/en-US/firefox/addon/tilt/
+
+    Andre tilegg:
+    http://hacks.mozilla.org/2011/11/firefox-tons-of-tools-for-web-developers/
+
+
+* Dokumentasjon
+	MDN:
+    https://developer.mozilla.org/en/JavaScript
+
+    Microsoft:
+    http://msdn.microsoft.com/en-us/library/windows/apps/yek4tbz0%28v=vs.94%29.aspx
+
+    
+
+...

@@ -1,25 +1,6 @@
 var queryInput = document.getElementById('query'); 
 var searchResultDiv = document.getElementById('search-result');
 var clearButton = document.getElementById('clear-button');
-clearButton.addEventListener('click', function() {
-    clear();
-    queryInput.focus();
-});
-
-var json = {
-    "products": [
-        { "key": 1, "name": "Nykokt hummer fra Maine" },
-        { "key": 2, "name": "Ferske fjordreker" },
-        { "key": 3, "name": "Kamtchatca krabbe" },
-        { "key": 4, "name": "Hvitløk&sitron marinerte kongereker" },
-        { "key": 5, "name": "Dampet kamskjell med estragon" },
-        { "key": 6, "name": "Gambas med chili og ingefær" },
-        { "key": 7, "name": "Skagenrøre m/løyrom" },
-        { "key": 8, "name": "Vindampet blåskjell" },
-        { "key": 9, "name": "Krabbeskjell/klør" },
-        { "key": 10, "name": "NykoktSjøkreps" }
-    ]
-};
 
 
 function handleFormSubmit()
@@ -30,8 +11,17 @@ function handleFormSubmit()
 
 function doSearch(searchTerm)
 {
-    var products = findProductsByName( searchTerm );
-    displayProducts(products);
+    clearResult();
+    var request = new XMLHttpRequest();
+    request.open( 'GET', 'json/products.json', false );
+    request.send( null );
+
+    if ( request.status === 200 )
+    {
+        var products = JSON.parse( request.responseText );
+        var filtered = getFilteredResult( products, searchTerm );
+        displayProducts(filtered);
+    }
     
     return false;
 }
@@ -61,13 +51,13 @@ function htmlFormat(products)
 }
 
 
-function findProductsByName(nameToFind)
+function getFilteredResult(products, nameToFind)
 {
     var found = [];
-    var products = json.products, product;
-    for (var i = 0; i < products.length; i++)
+    var p = products.products, product;
+    for (var i = 0; i < p.length; i++)
     {
-        product = products[i];
+        product = p[i];
         
         if ( product.name.toLowerCase().indexOf( nameToFind.toLowerCase() ) > -1 )
         {
@@ -79,12 +69,27 @@ function findProductsByName(nameToFind)
 }
 
 
-function clear()
+function clearResult()
 {
-    queryInput.value = '';
     searchResultDiv.innerHTML = '';
 }
 
 
-queryInput.focus();
+function slideDown( element )
+{
+    // debugger;
+    element.className = 'new-position';
+}
+
+
+function init( bodyElement )
+{
+    queryInput.focus();
+    slideDown( bodyElement );
+}
+
+
+init( document.getElementById( 'page-container' ) );
+
+
 

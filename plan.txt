@@ -1,8 +1,5 @@
 "En enklere JavaScript hverdag"
 
-test
-
-
 TODO 
     Chrome for slides og Cloud9 demo
     Firefox for browser debugging
@@ -16,6 +13,8 @@ TODO
     allowing you to run, debug and deploy applications from anywhere.
     
     node.js eksempel, debugging
+    console
+    git
 
 
 * Breakpoint debugging i browser'n

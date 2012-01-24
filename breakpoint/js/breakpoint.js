@@ -1,23 +1,5 @@
 var queryInput = document.getElementById('query'); 
 var searchResultDiv = document.getElementById('search-result');
-var button1 = document.getElementById( 'break-on-xhr-button-1' );
-button1.addEventListener( 'click', function ()
-{
-    browseProducts('1');
-});
-
-var button2 = document.getElementById( 'break-on-xhr-button-2' );
-button2.addEventListener( 'click', function ()
-{
-    browseProducts('2');
-});
-
-var button2 = document.getElementById( 'break-on-xhr-button-3' );
-button2.addEventListener( 'click', function ()
-{
-    browseProducts('3');
-});
-
 
 function handleFormSubmit()
 {
@@ -27,7 +9,6 @@ function handleFormSubmit()
 
 function doSearch(searchTerm)
 {
-    clearResult();
     var request = new XMLHttpRequest();
     request.open( 'GET', 'json/products.json', false );
     request.send( null );
@@ -44,7 +25,7 @@ function doSearch(searchTerm)
 
 function browseProducts( page )
 {
-    clearResult();
+    clearList();
     var request = new XMLHttpRequest();
     request.open( 'GET', 'json/products.json?page=' + page, false );
     request.send( null );
@@ -97,7 +78,7 @@ function getFilteredResult(products, nameToFind)
 }
 
 
-function clearResult()
+function clearList()
 {
     searchResultDiv.innerHTML = '';
 }
@@ -110,10 +91,10 @@ function slideDown( element )
 }
 
 
-function init( bodyElement )
+function init( pageWrapperElement )
 {
     queryInput.focus();
-    slideDown( bodyElement );
+    slideDown( pageWrapperElement );
 }
 
 

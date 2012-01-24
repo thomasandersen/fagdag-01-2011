@@ -98,6 +98,10 @@ a:hover {
 
 /* COMMON STEP STYLES */
 
+h1, h2 {
+    text-shadow: -1px -1px 2px rgba(100,100,100,0.9);
+}
+
 h1 {
     font-size: 82px;
 }
@@ -108,6 +112,13 @@ h2 {
 
 ul {
     margin: 50px; 
+}
+
+.normal-link {
+    color: inherit;
+    text-decoration: none;
+    background: none !important;
+    border-radius: 0;
 }
 
 a.keyboard-key {
@@ -206,7 +217,7 @@ a.keyboard-key {
 
 /* Cloud9 */
 
-#cloud9 {
+#cloud9, #jsFiddle {
     background-image: url('../images/sky.jpg');
     height: 600px;
     color: #fff;
@@ -223,6 +234,15 @@ a.keyboard-key {
     margin-left:auto; 
     margin-right:auto;
 }
+
+/* Breakpoint */
+
+#breakpoint a {
+    display: block; 
+    padding: 20px; 
+    background-color:#fff;    
+} 
+
  
 /* Console */
 

@@ -13,8 +13,8 @@
             border: 1px solid Grey;
             font: 13px Arial;
             position: absolute;
-            top: 10px;
-            right: 0;
+            bottom: 5px;
+            left: 5px;
             padding: 10px 10px 10px 20px;
             background-color: LightYellow;
             line-height: 17px;
@@ -24,13 +24,12 @@
 </head>
 <body>
 
+<h1>Bestillingsskjema</h1>
+
 <form>
     <div>
         <table style="width:400px">
             <tbody>
-                <tr>
-                    <th colspan="2">Bestilling</th>
-                </tr>
                 <tr>
                     <td>Produkt</td>
                     <td><input type="text" name="product" id="product" value="Fisk"/></td>
@@ -48,31 +47,24 @@
                     <td><input type="text" name="total" id="total" readonly="true"/></td>
                 </tr>
                 <tr>
-                    <td colspan="2"><button>Add order</button></td>
+                    <td colspan="2"><input type="button" id="add-button"/ value="Legg til"/></td>
                 </tr>
             </tbody>
         </table>
     </div>
 </form>
 
+<h2>Bestillinger</h2>
+
+<pre id="order-list">
+</pre>
+
+
 <div id="infotip">
-    <div>Breakpoint shortcuts</div>
-    <table>
-        <tr>
-            <td valign="top" style="padding-right: 40px">
-                Step into (F11)<br/>
-                Step over (F10)<br/>
-                Rerun (^ + F8)
-            </td>
-            <td valign="top">
-                Step out (^ + F11)<br/>
-                Continue (F8)
-            </td>
-        </tr>
-    </table>
 </div>
 
 <script type="text/javascript" src="js/order.js"></script>
+<script type="text/javascript" src="js/infotip.js"></script>
 
 </body>
 </html>

@@ -1,12 +1,19 @@
 "En enklere JavaScript hverdag"
 
 TODO 
-    Chrome for slides og Cloud9 demo
+    Chrome for slides
     Firefox for browser debugging
     Mer fokus på real world eksempler
-    Justere presentasjonen / gjennomgang / testing
 
-    Husk å lag error i breakpoint før du begynner
+    Opera Icon
+    
+    Canary oppsett
+    
+    Hva er intressant for publikum 
+    - Shortcuts
+    - Oppsumer hvert steg
+
+    !!! Husk å lag error i breakpoint.js init() før du begynner !!!
 
 ---
 

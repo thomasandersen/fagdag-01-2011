@@ -9,6 +9,7 @@ function handleFormSubmit()
 
 function doSearch(searchTerm)
 {
+    // debugger;
     var request = new XMLHttpRequest();
     request.open( 'GET', 'json/products.json', false );
     request.send( null );

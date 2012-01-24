@@ -5,8 +5,6 @@ TODO
     Firefox for browser debugging
     Mer fokus på real world eksempler
 
-    Opera Icon
-    
     Canary oppsett
     
     Hva er intressant for publikum 

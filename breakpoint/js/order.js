@@ -7,6 +7,7 @@ $('quantity').addEventListener('keyup', handleKeyboardEvent);
 $('add-button').addEventListener('click', addOrder);
 $('all-orders-button').addEventListener('click', loadAllOrders);
 
+
 /* App */
 
 function handleKeyboardEvent(event)
@@ -68,7 +69,7 @@ function loadAllOrders()
 {
     $('order-list').innerHTML = '';
     var request = new XMLHttpRequest();
-    request.open( 'GET', 'json/orders.json?load=' + ++loadCount , false );
+    request.open( 'GET', 'json/orders.json?load=' + (++loadCount) , false );
     request.send( null );
 
     if ( request.status === 200 )

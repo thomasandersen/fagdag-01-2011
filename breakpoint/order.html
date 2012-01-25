@@ -3,7 +3,6 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <title>Order</title>
-    
     <style type="text/css">
         table th {
             text-align: left;
@@ -39,9 +38,28 @@
             opacity: 1;
         }
     </style>
-    
 </head>
-<body>
+<body onload="onLoad()" onunload="onUnload()">
+
+<script type="text/javascript">
+    function getTime()
+    {
+        var d = new Date();
+        
+        return d.getHours() + ':' + d.getMinutes() + ':' + d.getSeconds();
+    }
+
+    function onLoad()
+    {
+        console.log( getTime() + ' - onLoad');
+    }
+    
+    function onUnload()
+    {
+        console.log( getTime() + ' - onUnload');
+    }
+</script>
+  
 
 <h1>Bestillingsskjema</h1>
 

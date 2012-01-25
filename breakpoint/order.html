@@ -10,11 +10,12 @@
         }
         
         #infotip {
+            width: 300px;
             border: 1px solid Grey;
             font: 13px Arial;
             position: absolute;
             bottom: 5px;
-            left: 5px;
+            right: 5px;
             background-color: LightYellow;
             line-height: 17px;
         }
@@ -25,6 +26,17 @@
         #infotip div {
             font-weight: bold;
             margin-bottom: 0 !important;
+        }
+        
+        .order-item {
+            opacity: 0;
+            transition: opacity .25s ease-in-out;
+            -moz-transition: opacity .25s ease-in-out;
+            -webkit-transition: opacity .25s ease-in-out;
+        }
+            
+        .fade-in {
+            opacity: 1;
         }
     </style>
     
@@ -61,7 +73,9 @@
     </div>
 </form>
 
-<h2>Bestillinger</h2>
+<h2>Bestillinger <input type="button" id="all-orders-button" value="Hent alle"/></h2>
+
+
 
 <pre id="order-list">
 </pre>

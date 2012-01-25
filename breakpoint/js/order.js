@@ -2,20 +2,27 @@ var $ = function(id) {
     return document.getElementById(id);
 };
 
-$('price').addEventListener('keyup', setTotal);
-$('quantity').addEventListener('keyup', setTotal);
-$('add-button').addEventListener('click', addProduct);
+$('price').addEventListener('keyup', handleKeyboardEvent);
+$('quantity').addEventListener('keyup', handleKeyboardEvent);
+$('add-button').addEventListener('click', addOrder);
+$('all-orders-button').addEventListener('click', loadAllOrders);
 
 /* App */
 
+function handleKeyboardEvent(event)
+{
+    setTotal();
+}
+
+
 function setTotal()
 {
-    var totalIncludingMva = calculateTotalIncludingMva();
+    var totalIncludingMva = calculateTotal();
     $('total').value = totalIncludingMva;
 }
 
 
-function calculateTotalIncludingMva()
+function calculateTotal()
 {
     var total = getPrice() * getQuantity();
     var totalIncludingMva = total * 25*( total / 100 );
@@ -23,33 +30,43 @@ function calculateTotalIncludingMva()
 }
 
 
-function getItem()
+function getProductName()
 {
-    return $('item').value;
+    return $('product').value;
 }
 
 
 function getPrice()
 {
-    return parseInt($('price').value);
+    return parseInt($('price').value, 10);
 }
 
 
 function getQuantity()
 {
-    return parseInt($('quantity').value);
+    return parseInt($('quantity').value, 10);
 }
 
 
-function getTotal() 
+function addOrder()
 {
-    return getPrice() * getQuantity();
+    var order = {
+        'key':      10,
+        'name':     getProductName(),
+        'price':    getPrice(),
+        'quantity': getQuantity()
+    };
+    
+    var orderItem = createOrderItem( order );
+    
+    $('order-list').appendChild( orderItem );
 }
 
 
 var loadCount = 0;
-function addProduct()
+function loadAllOrders()
 {
+    $('order-list').innerHTML = '';
     var request = new XMLHttpRequest();
     request.open( 'GET', 'json/orders.json?load=' + ++loadCount , false );
     request.send( null );
@@ -58,18 +75,17 @@ function addProduct()
     {
         var responseAsJson = JSON.parse( request.responseText );
         createOrderList(responseAsJson);
-        createOrderTotal(responseAsJson);
     }
 }
 
 
 function createOrderList( json )
 {
-    var products = json.products;
+    var orders = json.orders;
     
-    for ( var i = 0; i < products.length; i++ )
+    for ( var i = 0; i < orders.length; i++ )
     {
-        $('order-list').appendChild( createOrderItem( products[i]) );
+        $('order-list').appendChild( createOrderItem( orders[i]) );
     }
 }
 
@@ -77,23 +93,10 @@ function createOrderList( json )
 function createOrderItem( order )
 {
     var div = document.createElement('div');
-    div.innerHTML = '#' + order.key + '\t' + order.name + '\t' + order.quantity  + '\t' + order.price;
+    div.innerHTML = '#' + order.key + '\t' + order.quantity + '\t' + order.name  + '\t' + order.price;
+    
     return div;
 }
 
-
-function createOrderTotal( json )
-{
-    var products = json.products;
-    var total = 0, quantity = 0;
-    for ( var i = 0; i < products.length; i++ )
-    {
-        total += parseInt(products[i].price, 10);
-        quantity += parseInt(products[i].quantity, 10); 
-    }
-    $('order-list').appendChild( document.createTextNode('----------------------------\n') );
-    $('order-list').appendChild( document.createTextNode('Total\t\t' + quantity + '\t' + total + '\n') );
-    $('order-list').appendChild( document.createTextNode('============================\n') );
-}
 
 setTotal();

@@ -26,7 +26,7 @@ function setTotal()
 function calculateTotal()
 {
     var total = getPrice() * getQuantity();
-    var totalIncludingMva = total * 25*( total / 100 );
+    var totalIncludingMva = total + 25*( total / 100 );
     return totalIncludingMva;
 }
 
